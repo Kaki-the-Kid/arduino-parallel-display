@@ -4,6 +4,7 @@
 
 # Diagrammer og pinout
 ![image](https://user-images.githubusercontent.com/44589560/159444911-5e86ff67-4ff3-4712-b714-f725dafb0e95.png)
+![image](https://user-images.githubusercontent.com/44589560/159445023-cd2088a4-2b2e-49d0-b599-f383abf8cbb1.png)
 
 # Anvendte biblioteker
 * LiquidCrystal:<br />https://www.arduino.cc/reference/en/libraries/liquidcrystal/
