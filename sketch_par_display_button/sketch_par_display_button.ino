@@ -1,4 +1,10 @@
+#define del 1000
 #include <LiquidCrystal.h>
+
+//(1)
+int buttonpin13 = 13;
+int buttonState13 = 0;
+
 /*
   The circuit:
  * LCD RS pin to digital pin 12
@@ -20,6 +26,8 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
+int offsetTime = 0;
+
 void setup() {
   lcd.cursor();
   lcd.blink();
@@ -28,8 +36,6 @@ void setup() {
   lcd.begin(16, 2);
   // Print a message to the LCD.
   lcd.print("Hello World!");
-  
-
 }
 
 void loop() {
@@ -37,5 +43,16 @@ void loop() {
   // (note: line 1 is the second row, since counting begins with 0):
   lcd.setCursor(0, 1);
   // print the number of seconds since reset:
-  lcd.print(millis() / 1000);
+  lcd.print((millis() - offsetTime) / 1000);
+
+  // Read the button
+  buttonState13 = digitalRead(buttonpin13);
+  delay(50);
+
+  if (buttonState13 == HIGH) {
+    offsetTime = millis();
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Hello World!");
+  }
 }
